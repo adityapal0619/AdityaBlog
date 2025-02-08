@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e0e7ff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+        }
+
+        .featured-post {
+            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+            color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-date {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .post-excerpt {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #4f46e5;
+        }
+
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .featured-post {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Aditya Blog</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Articles</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="featured-post">
+            <h2>Featured Post</h2>
+            <p>Discover the latest trends in web development</p>
+        </section>
+
+        <section class="post-grid">
+            <!-- Blog Post 1 -->
+            <article class="post-card">
+                <img src="https://source.unsplash.com/random/800x600?tech" alt="Post image" class="post-image">
+                <div class="post-content">
+                    <p class="post-date">May 15, 2023</p>
+                    <h3 class="post-title">The Future of Web Development</h3>
+                    <p class="post-excerpt">Explore the upcoming technologies that will shape the future of web development...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="post-card">
+                <img src="https://source.unsplash.com/random/800x600?code" alt="Post image" class="post-image">
+                <div class="post-content">
+                    <p class="post-date">May 14, 2023</p>
+                    <h3 class="post-title">CSS Best Practices</h3>
+                    <p class="post-excerpt">Learn how to write maintainable and scalable CSS code...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="post-card">
+                <img src="https://source.unsplash.com/random/800x600?programming" alt="Post image" class="post-image">
+                <div class="post-content">
+                    <p class="post-date">May 13, 2023</p>
+                    <h3 class="post-title">JavaScript Frameworks Comparison</h3>
+                    <p class="post-excerpt">Understanding the differences between popular JavaScript frameworks...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 BlogSphere. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Animate post cards
+        document.querySelectorAll('.post-card').forEach((card) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.createElement('div');
+        menuToggle.innerHTML = '☰';
+        menuToggle.style.color = 'white';
+        menuToggle.style.fontSize = '1.5rem';
+        menuToggle.style.cursor = 'pointer';
+        menuToggle.style.display = 'none';
+        document.querySelector('nav').appendChild(menuToggle);
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+                document.querySelector('.nav-links').style.display = 'none';
+            } else {
+                menuToggle.style.display = 'none';
+                document.querySelector('.nav-links').style.display = 'flex';
+            }
+        });
+
+        menuToggle.addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
