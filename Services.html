@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Paradise Global Properties</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+   <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
+        <a href="index.html" class="text-xl md:text-2xl font-bold text-gray-800">Paradise Global Properties</a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-6">
+            <li><a href="AboutUs.html" class="hover:text-gray-600">About</a></li>
+            <li><a href="Services.html" class="hover:text-gray-600">Services</a></li>
+            <li><a href="#properties" class="hover:text-gray-600">Properties</a></li>
+            <li><a href="contactus.html" class="hover:text-gray-600">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out">
+        <ul class="text-center py-4 space-y-2">
+            <li><a href="AboutUs.html" class="block py-2 hover:bg-gray-100">About</a></li>
+            <li><a href="Services.html" class="block py-2 hover:bg-gray-100">Services</a></li>
+            <li><a href="properties.html" class="block py-2 hover:bg-gray-100">Properties</a></li>
+            <li><a href="contactus.html" class="block py-2 hover:bg-gray-100">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <!-- Header -->
+    <header class="bg-gray-900 text-white py-6 text-center">
+        <h1 class="text-3xl font-bold">Our Services</h1>
+        <p class="text-gray-300">Providing the best real estate solutions tailored to your needs.</p>
+    </header>
+    
+    <!-- Services Section -->
+    <section class=" py-12 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Service 1 -->
+            <div class=" bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up">
+                <i class="fa-solid fa-building text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Property Buying</h3>
+                <p class="text-gray-600">Find your dream home with our expert guidance and extensive listings.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-handshake text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Real Estate Consulting</h3>
+                <p class="text-gray-600">Get expert insights on property investments, legal matters, and market trends.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-house text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Luxury Rentals</h3>
+                <p class="text-gray-600">Exclusive high-end properties for short-term and long-term rentals.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up">
+                <i class="fa-solid fa-chart-line text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Investment Planning</h3>
+                <p class="text-gray-600">Maximize returns with strategic real estate investments.</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-key text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Property Selling</h3>
+                <p class="text-gray-600">Sell your property quickly with our marketing and negotiation expertise.</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-gavel text-4xl text-gray-900 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Legal Assistance</h3>
+                <p class="text-gray-600">Hassle-free legal support for property transactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Paradise Globaol Properties</h3>
+                    <p class="text-gray-400 text-sm">
+                        Empowering Dreams, Crafting Legacies</p>
+                </div>
+    
+                <!-- Navigation Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#properties" class="text-gray-400 hover:text-white transition">Properties</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact & Socials -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Contact Us</h3>
+                    <p class="text-gray-400 text-sm">📍 Agra, Uttar Pradesh, India</p>
+                    <p class="text-gray-400 text-sm">📞 <a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></p>
+                    <p class="text-gray-400 text-sm">✉ <a href="mailto:paradiseglobalproperties@yahoo.com" class="hover:text-white">paradiseglobalproperties@yahoo.com</a></p>
+    
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-3">
+                        <a href="https://www.facebook.com/people/Paradise-Properties/100095192562273/?rdid=6GJSrePbWwpmWGts&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1C8cPwAQ1F%2F" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/paradise-globaol-properties/" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/105930541/admin/dashboard/ target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/Paradiseglobaol?t=S1VRMJ8U4Md_SE5RGsQecw&s=08" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="text-center text-gray-500 text-sm mt-6">
+                © 2025 Paradise Globaol Properties. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        AOS.init();
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            menuBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

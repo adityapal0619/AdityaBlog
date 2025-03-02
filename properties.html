@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ===== Base Styles ===== */
+        :root {
+            --primary: #2563eb;
+            --accent: #f59e0b;
+            --bg: #f4f4f4;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Hero Section with Animation */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: url('luxury-house.jpg') no-repeat center/cover;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            transform: scale(1);
+        }
+
+        .property-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .card-image img:hover {
+            filter: brightness(90%);
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .price {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .features {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-gray-800">Paradise Global Properties</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="AboutUs.html" class="hover:text-gray-600">About</a></li>
+                <li><a href="Services.html" class="hover:text-gray-600">Services</a></li>
+                <li><a href="#properties" class="hover:text-gray-600">Properties</a></li>
+                <li><a href="contactus.html" class="hover:text-gray-600">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out">
+            <ul class="text-center py-4 space-y-2">
+                <li><a href="AboutUs.html" class="block py-2 hover:bg-gray-100">About</a></li>
+                <li><a href="Services.html" class="block py-2 hover:bg-gray-100">Services</a></li>
+                <li><a href="#properties" class="block py-2 hover:bg-gray-100">Properties</a></li>
+                <li><a href="contactus.html" class="block py-2 hover:bg-gray-100">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <h1>Find Your Dream Luxury Home</h1>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn">All</button>
+            <button class="filter-btn">Homes</button>
+            <button class="filter-btn">Apartments</button>
+            <button class="filter-btn">Price ↑</button>
+        </div>
+
+        <div class="property-grid">
+            <!-- Generating 6 Property Cards -->
+            <script>
+                const properties = [
+                    { img: 'property1.jpg', price: '$1,250,000', title: 'Modern Luxury Villa with Pool', beds: 5, baths: 4, sqft: 3500 },
+                    { img: 'property2.jpg', price: '$950,000', title: 'Elegant Apartment in Downtown', beds: 3, baths: 2, sqft: 2000 },
+                    { img: 'property3.jpg', price: '$2,500,000', title: 'Beachfront Mansion with Private Dock', beds: 6, baths: 5, sqft: 5000 },
+                    { img: 'property4.jpg', price: '$1,800,000', title: 'Classic Estate with Large Garden', beds: 4, baths: 3, sqft: 4000 },
+                    { img: 'property5.jpg', price: '$1,150,000', title: 'Penthouse with Stunning City Views', beds: 3, baths: 3, sqft: 2200 },
+                    { img: 'property6.jpg', price: '$870,000', title: 'Modern Townhouse with Smart Features', beds: 3, baths: 2, sqft: 1800 }
+                ];
+                
+                document.write(properties.map(p => `
+                    <div class="property-card">
+                        <div class="card-image">
+                            <img src="${p.img}" alt="${p.title}">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="price">${p.price}</h3>
+                            <h2 class="title">${p.title}</h2>
+                            <div class="features">
+                                <div class="feature-item"><i class="fas fa-bed"></i> ${p.beds} Beds</div>
+                                <div class="feature-item"><i class="fas fa-bath"></i> ${p.baths} Baths</div>
+                                <div class="feature-item"><i class="fas fa-expand"></i> ${p.sqft} sqft</div>
+                            </div>
+                            <button class="filter-btn">View Details</button>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+    </div>
+</body>
+</html>

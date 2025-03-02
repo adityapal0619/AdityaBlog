@@ -3,212 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Blog</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <title>Paradise Globaol Properties</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add this in your HTML file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-        body {
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #e0e7ff;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 100px auto 40px;
-            padding: 0 20px;
-        }
-
-        .featured-post {
-            background: linear-gradient(135deg, #4f46e5, #8b5cf6);
-            color: white;
-            border-radius: 15px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .post-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .post-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .post-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .post-content {
-            padding: 1.5rem;
-        }
-
-        .post-date {
-            color: #6b7280;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .post-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-
-        .post-excerpt {
-            color: #4b5563;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: #6366f1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: #4f46e5;
-        }
-
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .featured-post {
-                padding: 2rem;
-            }
-        }
-    </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="#" class="logo">Aditya Blog</a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Articles</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+<body class="bg-gray-100 text-gray-900">
+    
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-gray-800">Paradise Global Properties</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="AboutUs.html" class="hover:text-gray-600">About</a></li>
+                <li><a href="Services.html" class="hover:text-gray-600">Services</a></li>
+                <li><a href="properties.html" class="hover:text-gray-600">Properties</a></li>
+                <li><a href="contactus.html" class="hover:text-gray-600">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out">
+            <ul class="text-center py-4 space-y-2">
+                <li><a href="AboutUs.html" class="block py-2 hover:bg-gray-100">About</a></li>
+                <li><a href="Services.html" class="block py-2 hover:bg-gray-100">Services</a></li>
+                <li><a href="#properties" class="block py-2 hover:bg-gray-100">Properties</a></li>
+                <li><a href="contactus.html" class="block py-2 hover:bg-gray-100">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative w-full h-[50vh] md:h-screen">
+        <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <source src="./photos/image-5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center z-10 px-4">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Find Your Dream Luxury Home</h1>
+            <p class="text-sm md:text-lg mb-6">Discover the finest real estate properties with unmatched elegance and style.</p>
+            <a href="#properties" class="text-sm md:text-lg bg-white text-gray-900 px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold hover:bg-gray-300">
+                Browse Listings
+            </a>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12">Featured Properties</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Property 1 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image.jpg" alt="Beach Villa" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Modern Beach Villa</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$5,200,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">6 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">8 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">5,000 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image-2.jpg" alt="Hillside Mansion" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Hillside Mansion</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$8,500,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">8 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">10 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">12,000 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image-3.jpg" alt="City Penthouse" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Downtown Penthouse</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$3,800,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">3 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">4 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">3,200 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Additional Properties -->
+                <!-- Property 4 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image-4.jpg" alt="Luxury Apartment" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Skyline Apartment</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$2,500,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">2 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">3 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">2,800 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image-6.jpg" alt="Country Estate" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Country Estate</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$6,750,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">5 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">6 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">8,500 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="photos/image-7.jpg" alt="Resort Villa" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2">Resort Villa</h3>
+                        <p class="text-gray-600 font-bold text-md md:text-lg">$4,200,000</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">4 Bedrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">5 Bathrooms</span>
+                            <span class="bg-gray-200 px-3 py-1 rounded-full text-xs md:text-sm">4,500 sqft</span>
+                        </div>
+                        <button class="mt-4 w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition text-sm md:text-base">
+                            View Details
+                        </button>
+                    </div>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </section>
 
-    <main>
-        <section class="featured-post">
-            <h2>Featured Post</h2>
-            <p>Discover the latest trends in web development</p>
-        </section>
+     <!-- About Section -->
+     <section id="about" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-6">
+            <div class="md:w-1/2 mb-6 md:mb-0" data-aos="fade-right">
+                <h2 class="text-2xl md:text-4xl font-bold mb-4">About Us</h2>
+                <p class="text-sm md:text-lg text-gray-600 mb-4">
+                    At <strong>Paradise Global Properties</strong>, we specialize in curating and delivering exceptional real estate experiences across the globe. With a deep understanding of luxury and high-value investments, we cater to <strong>High-Net-Worth Individuals (HNWIs), investors, and professionals</strong> looking for premium residential, commercial, and investment properties.
+                </p>
+                <h3 class="text-xl md:text-2xl font-semibold mb-2">Our Mission</h3>
+                <p class="text-sm md:text-lg text-gray-600 mb-4">
+                    To redefine luxury real estate by providing <strong>personalized, seamless, and tech-driven solutions</strong> that empower clients to make informed, profitable property decisions.
+                </p>
+                <h3 class="text-xl md:text-2xl font-semibold mb-2">Why Choose Us?</h3>
+                <ul class="text-sm md:text-lg text-gray-600 mb-4 list-disc list-inside">
+                    <li><strong>Exclusive Global Network</strong> – Access high-value properties in India, Australia, and beyond.</li>
+                    <li><strong>Tailored Real Estate Solutions</strong> – Personalized services for buying, selling, and renting luxury properties.</li>
+                    <li><strong>Tech-Driven Transactions</strong> – Secure, efficient, and transparent real estate dealings.</li>
+                    <li><strong>Expert Guidance & Consulting</strong> – Market insights and investment strategies to maximize returns.</li>
+                </ul>
+                <h3 class="text-xl md:text-2xl font-semibold mb-2">Our Commitment</h3>
+                <p class="text-sm md:text-lg text-gray-600">
+                    At Paradise Global Properties, we ensure <strong>discretion, efficiency, and trust</strong> in every transaction. Our team provides end-to-end assistance, helping you navigate the complexities of luxury real estate with confidence.
+                </p>
+            </div>
+            <div class="md:w-1/2 mt-6 md:mt-0 cursor-pointer" data-aos="fade-left">
+                <img src="photos/image-3.jpg" alt="Luxury Home" class="rounded-lg shadow-lg w-full transition-transform transform hover:scale-105 duration-300">
+            </div>
+        </div>
+    </section>
+    
 
-        <section class="post-grid">
-            <!-- Blog Post 1 -->
-            <article class="post-card">
-                <img src="https://source.unsplash.com/random/800x600?tech" alt="Post image" class="post-image">
-                <div class="post-content">
-                    <p class="post-date">May 15, 2023</p>
-                    <h3 class="post-title">The Future of Web Development</h3>
-                    <p class="post-excerpt">Explore the upcoming technologies that will shape the future of web development...</p>
-                    <a href="#" class="read-more">Read More →</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 md:py-16 bg-gray-100">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-8">Contact Us</h2>
+            <div class="max-w-lg mx-auto">
+                <form id="whatsapp-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="name" placeholder="Name" class="w-full px-4 py-2 rounded-lg border" required>
+                        <input type="email" id="email" placeholder="Email" class="w-full px-4 py-2 rounded-lg border" required>
+                    </div>
+                    <input type="tel" id="Phone" placeholder="Phone Number" maxlength="10"  pattern="[0-9]{10}" class="w-full px-4 py-3 rounded-lg border" required>
+                    <textarea id="message" rows="4" placeholder="Message" class="w-full px-4 py-2 rounded-lg border" required></textarea>
+                    <button type="submit" class="w-full bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">
+                        Send Message on WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Paradise Globaol Properties</h3>
+                    <p class="text-gray-400 text-sm">
+                        Empowering Dreams, Crafting Legacies</p>
                 </div>
-            </article>
-
-            <!-- Blog Post 2 -->
-            <article class="post-card">
-                <img src="https://source.unsplash.com/random/800x600?code" alt="Post image" class="post-image">
-                <div class="post-content">
-                    <p class="post-date">May 14, 2023</p>
-                    <h3 class="post-title">CSS Best Practices</h3>
-                    <p class="post-excerpt">Learn how to write maintainable and scalable CSS code...</p>
-                    <a href="#" class="read-more">Read More →</a>
+    
+                <!-- Navigation Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#properties" class="text-gray-400 hover:text-white transition">Properties</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
                 </div>
-            </article>
-
-            <!-- Blog Post 3 -->
-            <article class="post-card">
-                <img src="https://source.unsplash.com/random/800x600?programming" alt="Post image" class="post-image">
-                <div class="post-content">
-                    <p class="post-date">May 13, 2023</p>
-                    <h3 class="post-title">JavaScript Frameworks Comparison</h3>
-                    <p class="post-excerpt">Understanding the differences between popular JavaScript frameworks...</p>
-                    <a href="#" class="read-more">Read More →</a>
+    
+                <!-- Contact & Socials -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Contact Us</h3>
+                    <p class="text-gray-400 text-sm">📍 Agra, Uttar Pradesh, India</p>
+                    <p class="text-gray-400 text-sm">📞 <a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></p>
+                    <p class="text-gray-400 text-sm">✉ <a href="mailto:paradiseglobalproperties@yahoo.com" class="hover:text-white">paradiseglobalproperties@yahoo.com</a></p>
+    
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-3">
+                        <a href="https://www.facebook.com/people/Paradise-Properties/100095192562273/?rdid=6GJSrePbWwpmWGts&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1C8cPwAQ1F%2F" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/paradise-globaol-properties/" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/105930541/admin/dashboard/ target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/Paradiseglobaol?t=S1VRMJ8U4Md_SE5RGsQecw&s=08" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                    </div>
                 </div>
-            </article>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 BlogSphere. All rights reserved.</p>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="text-center text-gray-500 text-sm mt-6">
+                © 2025 Paradise Globaol Properties. All Rights Reserved.
+            </div>
+        </div>
     </footer>
 
+
     <script>
-        // Smooth scrolling for navigation links
+        // Mobile menu toggle
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+    
+            menuBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+    
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        });
+
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -218,47 +304,51 @@
             });
         });
 
-        // Add animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+
+        document.getElementById('whatsapp-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Get form values
+            var name = document.getElementById('name').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var message = document.getElementById('message').value.trim();
+    
+            // Check if fields are empty
+            if (name === "" || email === "" || message === "" || phone === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
+            // Your WhatsApp number (without "+")
+            var phoneNumber = "919026811374"; // Updated with your number
+    
+            // Correctly format message for WhatsApp
+            var whatsappMessage = `Hello, my name is *${name}*.\n\n📧 Email: *${email}*\n\n📝 Message:\n${message}`;
+            var encodedMessage = encodeURIComponent(whatsappMessage);
+    
+            // Open WhatsApp chat with the pre-filled message
+            var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        });
+
+        AOS.init();
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            menuBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
                 }
             });
         });
-
-        // Animate post cards
-        document.querySelectorAll('.post-card').forEach((card) => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.createElement('div');
-        menuToggle.innerHTML = '☰';
-        menuToggle.style.color = 'white';
-        menuToggle.style.fontSize = '1.5rem';
-        menuToggle.style.cursor = 'pointer';
-        menuToggle.style.display = 'none';
-        document.querySelector('nav').appendChild(menuToggle);
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth <= 768) {
-                menuToggle.style.display = 'block';
-                document.querySelector('.nav-links').style.display = 'none';
-            } else {
-                menuToggle.style.display = 'none';
-                document.querySelector('.nav-links').style.display = 'flex';
-            }
-        });
-
-        menuToggle.addEventListener('click', () => {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
+        
     </script>
 </body>
 </html>

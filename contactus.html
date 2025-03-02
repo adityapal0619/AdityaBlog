@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Paradise Global Properties</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <style>
+        .hover-effect:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-gray-800">Paradise Global Properties</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="AboutUs.html" class="hover:text-gray-600">About</a></li>
+                <li><a href="Services.html" class="hover:text-gray-600">Services</a></li>
+                <li><a href="#properties" class="hover:text-gray-600">Properties</a></li>
+                <li><a href="contactus.html" class="hover:text-gray-600">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 ease-in-out">
+            <ul class="text-center py-4 space-y-2">
+                <li><a href="AboutUs.html" class="block py-2 hover:bg-gray-100">About</a></li>
+                <li><a href="Services.html" class="block py-2 hover:bg-gray-100">Services</a></li>
+                <li><a href="properties.html" class="block py-2 hover:bg-gray-100">Properties</a></li>
+                <li><a href="contactus.html" class="block py-2 hover:bg-gray-100">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="abc relative bg-cover bg-center h-[50vh] flex items-center justify-center text-center px-4" style="background-image: url('photos/contactus.jpg');">
+        <div class="bg-black bg-opacity-60 p-6 sm:p-10 rounded-lg text-white">
+            <h1 class="text-3xl sm:text-5xl font-bold">Contact Us</h1>
+            <p class="mt-2 sm:mt-4 text-base sm:text-lg">Get in touch with us for real estate inquiries.</p>
+        </div>
+    </section>
+    
+    
+    <!-- JavaScript for Toggle -->
+    <script src="script.js"></script>
+  
+
+</body>
+</html>
