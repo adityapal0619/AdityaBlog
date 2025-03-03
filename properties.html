@@ -5,161 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Properties</title>
     <link href="./src/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ===== Base Styles ===== */
-        :root {
-            --primary: #2563eb;
-            --accent: #f59e0b;
-            --bg: #f4f4f4;
-            --text: #1e293b;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
-            --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-        }
-
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
         }
-
-        /* Hero Section with Animation */
-        .hero {
-            position: relative;
-            height: 500px;
-            background: url('luxury-house.jpg') no-repeat center/cover;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .filter-bar {
-            display: flex;
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: var(--primary);
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .filter-btn:hover {
-            background: var(--accent);
-            transform: scale(1.05);
-        }
-
         .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
             gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
         }
-
         .property-card {
-            background: var(--card-bg);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: 0.3s;
-            transform: scale(1);
+            min-width: 350px;
         }
-
         .property-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
         .card-image img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            transition: 0.3s;
         }
-
-        .card-image img:hover {
-            filter: brightness(90%);
-        }
-
         .card-content {
             padding: 15px;
+            text-align: center;
         }
-
-        .price {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .features {
-            display: flex;
-            gap: 15px;
-            margin: 10px 0;
-        }
-
-        .feature-item {
+        .connect-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
+            background: #22c55e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
             gap: 5px;
-            color: #64748b;
+            transition: 0.3s;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .filter-bar {
-                flex-direction: column;
-            }
+        .connect-btn:hover {
+            background: #16a34a;
+        }
+        .property-details {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .badge {
+            background: #e2e8f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .view-details {
+            background: #1e293b;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .view-details:hover {
+            background: #334155;
+        }
+        .property-images {
+            display: flex;
+            gap: 5px;
+            overflow: hidden;
+            justify-content: center;
+        }
+        .property-images img {
+            width: 80px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900>
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md py-4">
+<body class="bg-gray-100 text-gray-900">
+     <!-- Navbar -->
+     <nav class="bg-white shadow-md py-4">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-6">
             <a href="index.html" class="text-xl md:text-2xl font-bold text-gray-800">Paradise Global Properties</a>
             
@@ -174,7 +137,7 @@
             <ul class="hidden md:flex space-x-6">
                 <li><a href="AboutUs.html" class="hover:text-gray-600">About</a></li>
                 <li><a href="Services.html" class="hover:text-gray-600">Services</a></li>
-                <li><a href="#properties" class="hover:text-gray-600">Properties</a></li>
+                <li><a href="properties.html" class="hover:text-gray-600">Properties</a></li>
                 <li><a href="contactus.html" class="hover:text-gray-600">Contact</a></li>
             </ul>
         </div>
@@ -189,49 +152,132 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+   
+
+
     <div class="container">
-        <div class="hero">
-            <h1>Find Your Dream Luxury Home</h1>
-        </div>
+        <h1 class="text-2xl font-bold text-center mb-6">Available Properties</h1>
+        <div class="property-grid" id="property-container"></div>
+    </div>
 
-        <div class="filter-bar">
-            <button class="filter-btn">All</button>
-            <button class="filter-btn">Homes</button>
-            <button class="filter-btn">Apartments</button>
-            <button class="filter-btn">Price ↑</button>
-        </div>
-
-        <div class="property-grid">
-            <!-- Generating 6 Property Cards -->
-            <script>
-                const properties = [
-                    { img: 'property1.jpg', price: '$1,250,000', title: 'Modern Luxury Villa with Pool', beds: 5, baths: 4, sqft: 3500 },
-                    { img: 'property2.jpg', price: '$950,000', title: 'Elegant Apartment in Downtown', beds: 3, baths: 2, sqft: 2000 },
-                    { img: 'property3.jpg', price: '$2,500,000', title: 'Beachfront Mansion with Private Dock', beds: 6, baths: 5, sqft: 5000 },
-                    { img: 'property4.jpg', price: '$1,800,000', title: 'Classic Estate with Large Garden', beds: 4, baths: 3, sqft: 4000 },
-                    { img: 'property5.jpg', price: '$1,150,000', title: 'Penthouse with Stunning City Views', beds: 3, baths: 3, sqft: 2200 },
-                    { img: 'property6.jpg', price: '$870,000', title: 'Modern Townhouse with Smart Features', beds: 3, baths: 2, sqft: 1800 }
-                ];
-                
-                document.write(properties.map(p => `
-                    <div class="property-card">
-                        <div class="card-image">
-                            <img src="${p.img}" alt="${p.title}">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="price">${p.price}</h3>
-                            <h2 class="title">${p.title}</h2>
-                            <div class="features">
-                                <div class="feature-item"><i class="fas fa-bed"></i> ${p.beds} Beds</div>
-                                <div class="feature-item"><i class="fas fa-bath"></i> ${p.baths} Baths</div>
-                                <div class="feature-item"><i class="fas fa-expand"></i> ${p.sqft} sqft</div>
-                            </div>
-                            <button class="filter-btn">View Details</button>
-                        </div>
-                    </div>
-                `).join(''));
-            </script>
+    <div class="modal" id="property-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">Close</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-images"></div>
+            <p id="modal-details"></p>
         </div>
     </div>
+
+    <script>
+        const properties = [
+            { id: 1, images: ['photos/Properties_image/property_2/ADA HEIGHTS  Green Area.jpg', 'photos/Properties_image/property_2/ADA HEIGHTS 1.jpg', 'photos/Properties_image/property_2/ADA HEIGHTS 5.jpg', 'photos/Properties_image/property_2/ADA HEIGHTS 3.jpg'], location: 'Agra', bedrooms: 4, bathrooms: 4, size: '2,700 sqft' },
+            { id: 2, images: ['photos/Properties_image/property_3/image3.jpg', 'photos/Properties_image/property_3/image0.jpg', 'photos/Properties_image/property_3/image0.jpg', 'photos/Properties_image/property_3/image2.jpg'], location: 'Agra', bedrooms: 2, bathrooms: 2, size: '12,00 sqft' },
+            { id: 3, images: ['photos/Properties_image/property_4/Amoha4.jpeg', 'photos/Properties_image/property_4/Amoha1.jpeg', 'photos/Properties_image/property_4/Amoha2.jpeg', 'photos/Properties_image/property_4/Amoha3.jpeg'], location: 'Agra', bedrooms: 3, bathrooms: 4, size: '3,200 sqft' },
+        ];
+        
+        const container = document.getElementById('property-container');
+        
+        properties.forEach(p => {
+            const propertyHTML = `
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="${p.images[0]}" alt="Property Image">
+                    </div>
+                    <div class="property-images">
+                        ${p.images.map(img => `<img src="${img}" alt="Property Thumbnail">`).join('')}
+                    </div>
+                    <div class="card-content">
+                        <h2 class="title text-lg font-bold">${p.location}</h2>
+                        <div class="connect-btn">
+                            <i class="fas fa-envelope"></i> Connect For Price
+                        </div>
+                        <div class="property-details">
+                            <span class="badge">${p.bedrooms} Bedrooms</span>
+                            <span class="badge">${p.bathrooms} Bathrooms</span>
+                            <span class="badge">${p.size}</span>
+                        </div>
+                        <div class="view-details" onclick="openModal(${p.id})">View Details</div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += propertyHTML;
+        });
+
+        function openModal(id) {
+            const property = properties.find(p => p.id === id);
+            document.getElementById('modal-title').innerText = property.location;
+            document.getElementById('modal-images').innerHTML = property.images.map(img => `<img src="${img}" width="100">`).join('');
+            document.getElementById('modal-details').innerText = `${property.bedrooms} Bedrooms, ${property.bathrooms} Bathrooms, ${property.size}`;
+            document.getElementById('property-modal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('property-modal').style.display = 'none';
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Paradise Globaol Properties</h3>
+                    <p class="text-gray-400 text-sm">
+                        Empowering Dreams, Crafting Legacies</p>
+                </div>
+    
+                <!-- Navigation Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#properties" class="text-gray-400 hover:text-white transition">Properties</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact & Socials -->
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Contact Us</h3>
+                    <p class="text-gray-400 text-sm">📍 Agra, Uttar Pradesh, India</p>
+                    <p class="text-gray-400 text-sm">📞 <a href="tel:+919876543210" class="hover:text-white">+91 98765 43210</a></p>
+                    <p class="text-gray-400 text-sm">✉ <a href="mailto:paradiseglobalproperties@yahoo.com" class="hover:text-white">paradiseglobalproperties@yahoo.com</a></p>
+    
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-3">
+                        <a href="https://www.facebook.com/people/Paradise-Properties/100095192562273/?rdid=6GJSrePbWwpmWGts&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1C8cPwAQ1F%2F" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/paradise-globaol-properties/" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/105930541/admin/dashboard/ target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/Paradiseglobaol?t=S1VRMJ8U4Md_SE5RGsQecw&s=08" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="text-center text-gray-500 text-sm mt-6">
+                © 2025 Paradise Globaol Properties. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
