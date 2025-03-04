@@ -6,6 +6,7 @@
     <title>Contact Us - Paradise Global Properties</title>
     <link href="./src/output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         .hover-effect:hover {
             transform: scale(1.05);
@@ -91,6 +92,11 @@
                                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
+                            <label class="block text-gray-700 font-medium">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number"
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="mb-4">
                             <label class="block text-gray-700 font-medium">Message</label>
                             <textarea rows="4" placeholder="Write your message"
                                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
@@ -113,8 +119,7 @@
                     <h3 class="text-xl font-bold mb-2">Paradise Globaol Properties</h3>
                     <p class="text-gray-400 text-sm">
                         Empowering Dreams, Crafting Legacies</p>
-                </div>
-    
+                </div>  
                 <!-- Navigation Links -->
                 <div>
                     <h3 class="text-xl font-bold mb-2">Explore</h3>
@@ -124,14 +129,12 @@
                         <li><a href="Services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
                         <li><a href="contactus.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
                     </ul>
-                </div>
-    
+                </div> 
                 <!-- Contact & Socials -->
                 <div>
                     <h3 class="text-xl font-bold mb-2">Contact Us</h3>
                     <p class="text-gray-400 text-sm">📍 Agra, Uttar Pradesh, India</p>
-                    <p class="text-gray-400 text-sm">✉ <a href="mailto:paradiseglobaolproperties@yahoo.com" class="hover:text-white">paradiseglobaolproperties@yahoo.com</a></p>
-    
+                    <p class="text-gray-400 text-sm">✉ <a href="mailto:paradiseglobalproperties@yahoo.com" class="hover:text-white">paradiseglobalproperties@yahoo.com</a></p> 
                     <!-- Social Media Icons -->
                     <div class="flex space-x-4 mt-3">
                         <a href="https://www.facebook.com/people/Paradise-Properties/100095192562273/?rdid=6GJSrePbWwpmWGts&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1C8cPwAQ1F%2F" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
@@ -144,12 +147,12 @@
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://x.com/Paradiseglobaol?t=S1VRMJ8U4Md_SE5RGsQecw&s=08" target="_blank" class="text-gray-400 hover:text-white text-xl transition">
-                            <i class="fab fa-threads"></i>
+                            <i class="fab fa-x-twitter"></i>
                         </a>
+                        
                     </div>
                 </div>
-            </div>
-    
+            </div>   
             <!-- Copyright -->
             <div class="text-center text-gray-500 text-sm mt-6">
                 © 2025 Paradise Globaol Properties. All Rights Reserved.
@@ -158,7 +161,31 @@
     </footer>
     <!-- JavaScript for Toggle -->
     <script src="script.js"></script>
-  
+    <script>
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let phone = document.getElementById("phone").value;
+                let message = document.getElementById("message").value;
+    
+                fetch("https://docs.google.com/spreadsheets/d/1dUF3pqpA9pbcDLhrfN5_73fbuaj08kCW/edit?gid=1107468717#gid=1107468717", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, phone, message })
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "Success") {
+                        document.getElementById("responseMessage").classList.remove("hidden");
+                        document.getElementById("contactForm").reset();
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        </script>
+   
 
 </body>
 </html>
