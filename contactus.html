@@ -14,6 +14,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
+    
 </head>
 <body class="bg-gray-100">
     <nav class="bg-white shadow-md py-4">
@@ -83,12 +84,12 @@
                     <form>
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium">Full Name</label>
-                            <input type="text" placeholder="Enter your name"
+                            <input type="text" id="name" placeholder="Enter your name"
                                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium">Email</label>
-                            <input type="email" placeholder="Enter your email"
+                            <input type="email" id="email" placeholder="Enter your email"
                                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div class="mb-4">
@@ -98,17 +99,76 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium">Message</label>
-                            <textarea rows="4" placeholder="Write your message"
+                            <textarea rows="4" id="message" placeholder="Write your message"
                                 class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                         </div>
-                        <button type="submit"
+                        <button type="button" id="sendEmail"
                             class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
                             Send Message
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
+                
+                <script>
+                    document.getElementById('sendEmail').addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent form submission
+                
+                        // Get form values
+                        var name = document.getElementById('name').value.trim();
+                        var email = document.getElementById('email').value.trim();
+                        var phone = document.getElementById('phone').value.trim();
+                        var message = document.getElementById('message').value.trim();
+                
+                        // Validate the form data
+                        if (name === "" || email === "" || phone === "" || message === "") {
+                            alert("Please fill in all fields.");
+                            return;
+                        }
+                
+                        // Form data object to be sent
+                        var formData = {
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            message: message
+                        };
+                
+                        // Send data to Google Apps Script or any other endpoint
+                        fetch('https://script.google.com/macros/s/AKfycbwRo_zGyGk3mYi-0YHwzB2VrIAwwFQezBqApR6oorC9dAHda3rGB_omn5gpJxDC9E0/exec', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData)
+                        })
+                        .then(response => response.text())
+                        .then(data => {
+                            if (data === "Success") {
+                                alert("Your message has been sent successfully!");
+                                // Optionally reset form after successful submission
+                                document.querySelector('form').reset();
+                            } else {
+                                alert("Something went wrong. Please try again.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert("There was an error. Please try again.");
+                        });
+                
+                        // WhatsApp message formatting
+                        var whatsappMessage = `Hello, my name is *${name}*.\n\n📞 Phone: *${phone}*\n📧 Email: *${email}*\n\n📝 Message:\n${message}`;
+                        var encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                        // Your WhatsApp number (without "+")
+                        var phoneNumber = "919026811374"; // Replace with your WhatsApp number
+                
+                        // Open WhatsApp chat with pre-filled message
+                        var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                        window.open(whatsappURL, '_blank');
+                    });
+                </script>
+                
     </section>
     
     <footer class="bg-gray-900 text-white py-8">
@@ -160,31 +220,10 @@
         </div>
     </footer>
     <!-- JavaScript for Toggle -->
-    <script src="script.js"></script>
-    <script>
-            document.getElementById("contactForm").addEventListener("submit", function(event) {
-                event.preventDefault();
-                
-                let name = document.getElementById("name").value;
-                let email = document.getElementById("email").value;
-                let phone = document.getElementById("phone").value;
-                let message = document.getElementById("message").value;
     
-                fetch("https://docs.google.com/spreadsheets/d/1dUF3pqpA9pbcDLhrfN5_73fbuaj08kCW/edit?gid=1107468717#gid=1107468717", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name, email, phone, message })
-                })
-                .then(response => response.text())
-                .then(data => {
-                    if (data === "Success") {
-                        document.getElementById("responseMessage").classList.remove("hidden");
-                        document.getElementById("contactForm").reset();
-                    }
-                })
-                .catch(error => console.error("Error:", error));
-            });
-        </script>
+    <script src="script.js"></script>
+    
+    
    
 
 </body>
